@@ -8,10 +8,8 @@ export const formatName = name => {
 
 export const formatNumber = number => {
   const figures = number.replace(/\D/g, '');
-  let formattedNumber = '';
-  formattedNumber += figures.substring(0, 3);
-  for (let i = 3; i < figures.length; i += 2) {
-    formattedNumber += `-${figures.substring(i, i + 2)}`;
-  }
-  return formattedNumber;
+  return `${figures.substring(0, 3)}-${figures.substring(
+    3,
+    6
+  )}-${figures.substring(6, 10)}`;
 };
