@@ -1,32 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ContactListItem from './ContactListItem';
-import { selectContacts } from '../../redux/contacts/contactsSelectors';
-import { selectFilter } from '../../redux/filter/filterSelectors';
+import {
+  selectError,
+  selectIsLoading,
+  selectVisibleContacts,
+} from '../../redux/selectors';
 import { List } from './ContactListStyled';
 import { useEffect } from 'react';
-import { fetchAllContacts } from '../../redux/contacts/operations';
+import { fetchContacts } from '../../redux/operations';
 
 const ContactList = () => {
-  const { items, isLoading, error } = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
+  const visibleContacts = useSelector(selectVisibleContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
-
-  const filteredСontacts = () => {
-    return items.filter(item =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
 
   return (
     <List>
-      {items.length > 0 &&
-        filteredСontacts().map(item => (
-          <ContactListItem key={item.id} contact={item} />
+      {visibleContacts.length > 0 &&
+        visibleContacts.map(contact => (
+          <ContactListItem key={contact.id} contact={contact} />
         ))}
       {isLoading && <b>Loading contacts...</b>}
       {error && <b>{error}</b>}

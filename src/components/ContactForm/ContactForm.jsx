@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { formatName, formatNumber } from 'helpers';
-import { selectContacts } from '../../redux/contacts/contactsSelectors';
-import { addContact } from '../../redux/contacts/operations';
+import { addContact } from '../../redux/operations';
 import { Form, Label, Input, Button } from './ContactFormStyled';
 
 const ContactForm = () => {
-  const { items } = useSelector(selectContacts);
-  const dispatch = useDispatch();
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -34,15 +32,6 @@ const ContactForm = () => {
       name: formatName(name.trim()),
       phone: formatNumber(number.trim()),
     };
-
-    const existingContact = items.find(
-      item => item.name.toLowerCase() === name.toLowerCase()
-    );
-
-    if (existingContact) {
-      alert(`${formatName(name)} is already in contacts.`);
-      return;
-    }
 
     dispatch(addContact(newContact));
 
