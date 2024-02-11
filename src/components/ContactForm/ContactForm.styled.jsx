@@ -15,6 +15,8 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   margin-bottom: 10px;
   padding: 5px;
   max-width: 160px;
@@ -26,6 +28,8 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   padding: 5px;
   margin: 20px auto;
   &:hover {
