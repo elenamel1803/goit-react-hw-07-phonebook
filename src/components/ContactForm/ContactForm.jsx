@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { formatName, formatNumber } from 'helpers';
+import { formatName, formatNumber } from 'services/helpers';
 import { addContact } from '../../redux/operations';
-import { Form, Label, Input, Button } from './ContactFormStyled';
+import { Form, Label, Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -54,6 +54,7 @@ const ContactForm = () => {
           required
           onChange={handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          placeholder="Entrer name"
         />
       </div>
       <div>
@@ -65,6 +66,7 @@ const ContactForm = () => {
           required
           onChange={handleChange}
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+          placeholder="Enter phone number"
         />
       </div>
 

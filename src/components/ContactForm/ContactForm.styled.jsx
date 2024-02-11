@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  border: 1px solid;
-  width: 300px;
+  max-width: 400px;
   padding: 10px;
-
-  /* margin-bottom: 20px; */
+  text-align: center;
+  margin: 0 auto;
 `;
 
 export const Label = styled.label`
@@ -18,6 +17,7 @@ export const Input = styled.input`
   border-radius: 4px;
   margin-bottom: 10px;
   padding: 5px;
+  max-width: 160px;
   &:focus {
     border: 3px solid #7396d8;
     outline: none;
@@ -25,9 +25,9 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  margin-top: 20px;
   border-radius: 4px;
   padding: 5px;
+  margin: 20px auto;
   &:hover {
     background-color: #7396d8;
   }

@@ -1,11 +1,10 @@
-import { formatName } from '../helpers';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   requestAddContact,
   requestAllContacts,
   requestDeleteContact,
 } from '../api/contactsApi';
-
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { formatName } from '../services/helpers';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',

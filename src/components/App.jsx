@@ -1,13 +1,14 @@
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
+import { ContactsTitle, Title } from './App.styled';
 
 const App = () => {
   return (
     <>
-      <h1>Phonebook</h1>
+      <Title>Phonebook</Title>
       <ContactForm />
-      <h2>Contacts</h2>
+      <ContactsTitle>Contacts</ContactsTitle>
       <Filter />
       <ContactList />
     </>
